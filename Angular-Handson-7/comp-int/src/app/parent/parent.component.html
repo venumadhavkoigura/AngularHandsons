@@ -1,0 +1,12 @@
+<div>
+    <app-child [childMessage]="parentMessage" #myChild (messageEvent)="receiveMessage($event)"></app-child>
+   
+    <h4>Way 2: Child to Parent: Sharing Data via ViewChild</h4>
+    Message: {{ message }}
+    <br> This message is passed from child to parent via @ViewChild
+
+
+    <h4>Way 3. Child to Parent: Sharing Data via Output() and EventEmitter</h4>
+    Message in Way 3: {{ message1 }}
+    <br> This message is passed from child to parent via Event Emmiter
+</div>
