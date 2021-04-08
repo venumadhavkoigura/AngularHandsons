@@ -1,0 +1,59 @@
+<div class="container" *ngIf="isLoading">
+    <div>Loading.......</div>
+</div>
+<table class="table" *ngIf="!isLoading">
+    <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Avatar</th>
+    </tr>
+    <tr *ngFor="let u of users">
+        <td>
+            {{u.id}}
+        </td>
+        <td>
+            {{u.email}}
+        </td>
+        <td>
+            {{u.first_name}}
+        </td>
+        <td>
+            {{u.last_name}}
+        </td>
+        <td>
+            {{u.avatar}}
+        </td>
+    </tr>
+</table>
+
+<hr>
+<div class="container">{{ message }}</div>
+
+<hr>
+<div class="container-fluid">
+    <form #userForm="ngForm" class="form">
+        <small class="text-primary d-block">*Provide the Name and Job for Create</small>
+        <small class="text-primary d-block">*Provide the ID, Name and Job for Update</small>
+        <small class="text-primary d-block">*Provide the ID for Delete</small>
+        <div class="form-group">
+            <label for="userName">Enter the User ID</label>
+            <input type="text" name="userID" ngModel class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="userName">Enter the User Name</label>
+            <input type="text" name="userName" ngModel class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="userID">Enter the User JOB</label>
+            <input type="text" name="userJob" ngModel class="form-control">
+        </div>
+
+        <button class="btn btn-primary " (click)="createANewUser(userForm)">CREATE</button>
+        <button class="btn btn-primary ml-5" (click)="updateUser(userForm)">UPDATE</button>
+        <button class="btn btn-primary ml-5" (click)="deleteUser(userForm)">DELETE</button>
+    </form>
+</div>
+
+<hr>
